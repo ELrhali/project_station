@@ -1,0 +1,4 @@
+#Mon Feb 05 15:23:56 WEST 2024
+base.0=C\:\\Users\\moelr\\Desktop\\M2\\ProjectFlutter\\Station\\frontendflutter\\maps_marker\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
