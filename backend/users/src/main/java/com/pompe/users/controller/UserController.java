@@ -96,26 +96,8 @@ public class UserController {
         }
     }
     // Update user password
-    @PutMapping("/{userId}/update-password")
-    public ResponseEntity<UserInfo> updatePassword(
-            @PathVariable int userId,
-            @RequestParam String currentPassword,
-            @RequestParam String newPassword
-    ) {
-        try {
-            UserInfo updatedUser = userInfoService.updatePassword(userId, currentPassword, newPassword);
-            return new ResponseEntity<>(updatedUser, HttpStatus.OK);
-        } catch (AuthenticationException e) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        } catch (UserNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 
-    @GetMapping("/welcome")
-    public String welcomea() {
-        return "Welcome this endpoint is not hh";
-    }
+
 
     @PostMapping("/newuser")
     public ResponseEntity<String> createUser(@RequestBody UserInfo userInfo) {
@@ -136,11 +118,6 @@ public class UserController {
         userInfoService.deleteUser(userId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    @GetMapping("/user/userProfile")
-    @PreAuthorize("hasAuthority('USER')")
-    public String userProfile() {
-        return "Welcome to User Profile";
-    }
 
     @GetMapping("/admin/adminProfile")
     @PreAuthorize("hasAuthority('admin')")
@@ -148,21 +125,7 @@ public class UserController {
         return "Welcome to Admin Profile";
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> testFindByEmail() {
-        String username = "momo@gmail.com";
-        Optional<UserInfo> userInfoOptional = repository.findByEmail(username);
 
-        if (userInfoOptional.isPresent()) {
-            // L'utilisateur a été trouvé
-            UserInfo userInfo = userInfoOptional.get();
-            String roles = userInfo.getRoles();
-            return ResponseEntity.ok("Utilisateur trouvé. Rôles : " + roles);
-        } else {
-            // L'utilisateur n'a pas été trouvé
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Utilisateur non trouvé pour l'email : " + username);
-        }
-    }
 
     @PostMapping("/generateToken")
     public ResponseEntity<Map<String, String>> authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
@@ -192,9 +155,5 @@ public class UserController {
     }
 
     //statistic
-    @GetMapping("/total")
-    public ResponseEntity<Long> getTotalUsers() {
-        Long TotalUsers = userInfoService.getTotalUsers();
-        return ResponseEntity.ok(TotalUsers);
-    }
+
 }

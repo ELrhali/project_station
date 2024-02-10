@@ -13,6 +13,11 @@
         <module name="discovery" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="notification" target="17" />
+      <module name="serviceStation" target="17" />
+      <module name="station" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
