@@ -1,6 +1,6 @@
 {
-    "name": "frontendflutter",
-    "short_name": "frontendflutter",
+    "name": "maps_marker",
+    "short_name": "maps_marker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
@@ -31,5 +31,7 @@
             "type": "image/png",
             "purpose": "maskable"
         }
-    ]
+    ],
+    "gmaps_api_key": "AIzaSyCQERkvZcYv9HivG0RPgf27bxueQWYtAdw"
+
 }
